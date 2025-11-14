@@ -194,10 +194,19 @@ const VideoPlayerMobileWithTextAndAnimation = ({
   const translateY = (1 - easedProgress) * 30; // Move up 30px as it animates in
 
   return (
-    <div
-      ref={containerRef}
-      className="relative h-full min-h-[50vh] w-full overflow-hidden lg:min-h-[80vh]"
-    >
+    <div ref={containerRef} className="relative w-full">
+      {/* Video with blend mode to create the mask effect - defines container height */}
+      <video
+        src="/chamonix.mp4"
+        className="relative z-20 h-auto w-full rounded-full object-cover"
+        style={{
+          mixBlendMode: "screen",
+        }}
+        autoPlay
+        muted
+        loop
+      />
+
       <div className="absolute inset-0 z-10 flex items-center justify-center px-4">
         <h1
           className="select-none text-center font-bold uppercase leading-none text-white will-change-transform"
@@ -212,19 +221,7 @@ const VideoPlayerMobileWithTextAndAnimation = ({
         </h1>
       </div>
 
-      {/* Video with blend mode to create the mask effect */}
-      <video
-        src="/chamonix.mp4"
-        className="absolute inset-0 z-20 h-auto w-full rounded-3xl object-cover md:h-full md:rounded-full"
-        style={{
-          mixBlendMode: "screen",
-        }}
-        autoPlay
-        muted
-        loop
-      />
-
-      <div className="absolute bottom-3 right-3 z-30 h-24 w-24 sm:h-32 sm:w-32 lg:bottom-4 lg:right-4 lg:h-48 lg:w-48">
+      <div className="absolute bottom-0 right-0 z-30 h-24 w-24 sm:bottom-3 sm:right-3 sm:h-32 sm:w-32 lg:bottom-4 lg:right-4 lg:h-48 lg:w-48">
         <img
           src="https://cdn.prod.website-files.com/64955fc7b431e096dc683699/649a90270316f9b6234e94f1_Video%20Button.svg"
           loading="lazy"
