@@ -1,0 +1,84 @@
+# React & JSX Rules
+
+- Do not import React from 'react' (React 17+ JSX transform)
+- Use functional components with hooks, avoid class components
+- Component files should have .jsx extension
+
+# Naming Conventions
+
+- Components: PascalCase (e.g., `VideoPlayer.jsx`)
+- Hooks: camelCase with 'use' prefix (e.g., `useVideoControls`)
+- Utilities: camelCase (e.g., `formatDate.js`)
+- Constants: UPPER_SNAKE_CASE
+- Files: Match the main export name
+
+# Tailwind CSS
+
+- Use Tailwind utility classes, avoid custom CSS when possible
+- Use Prettier with prettier-plugin-tailwindcss for automatic class sorting
+- Prefer Tailwind's responsive prefixes (sm:, md:, lg:) over custom breakpoints
+- Use classnames library for conditional classes
+
+# Import Order
+
+1. External dependencies (React, libraries)
+2. Internal absolute imports
+3. Relative imports (./components, ./utils)
+4. Styles (./index.css)
+5. Types/interfaces (if using TypeScript)
+
+# Code Quality
+
+- Prefer const over let, avoid var
+- Use arrow functions for components and callbacks
+- Destructure props in function parameters
+- Use && and nullish coalescing (??)
+- Keep JSX clean: extract complex expressions into variables
+
+# Performance
+
+- Use React.memo() for expensive components
+- Memoize callbacks with useCallback when passed as props
+- Memoize computed values with useMemo
+- Lazy load routes and heavy components with React.lazy()
+- Avoid inline object/array literals in JSX when possible
+
+# State Management
+
+- Prefer local state (useState) when possible
+- Lift state only when necessary
+- Consider useReducer for complex state logic
+- Keep state as close to where it's used as possible
+
+# Event Handlers
+
+- Prefix with 'handle' (e.g., handleClick, handleSubmit)
+- Define handlers before JSX return
+- Use arrow functions to avoid binding issues
+
+# Props
+
+- Destructure props for clarity
+- Use default parameters for optional props
+- Prefer specific prop names over generic ones (e.g., `onVideoEnd` vs `onEnd`)
+
+# Hooks Rules
+
+- Call hooks at the top level (not in conditions/loops)
+- Custom hooks must start with 'use'
+- Include all dependencies in useEffect/useCallback/useMemo arrays
+- Clean up effects that need it (return cleanup function)
+
+# Accessibility
+
+- Use semantic HTML elements
+- Include alt text for images
+- Ensure keyboard navigation works
+- Use ARIA labels when needed
+
+# Vite Specific
+
+- Use Vite's fast refresh for development
+- Leverage Vite's asset handling for images/videos
+- Use import.meta.env for environment variables
+- Optimize bundle size with code splitting
